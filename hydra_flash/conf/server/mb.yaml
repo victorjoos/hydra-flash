@@ -1,0 +1,19 @@
+# @package _global_
+defaults:
+  - override /hydra/launcher: submitit_slurm
+
+name: manneback
+gpus: [0]
+hydra:
+  launcher:
+    name: hydra_test
+    timeout_min: 360
+    cpus_per_task: 12
+    tasks_per_node: 1
+    signal_delay_s: 120
+    max_num_timeout: 20
+    mem_gb: 32
+    nodes: 1
+    array_parallelism: 4
+    partition: gpu
+    gres: "gpu:1g.10gb:1"
