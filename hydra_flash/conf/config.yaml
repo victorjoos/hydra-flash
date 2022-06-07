@@ -1,0 +1,15 @@
+defaults:
+  - _self_
+  - datamodule: hymenoptera
+  - model: resnet18
+  - datamodule@predict_datamodule: hymenoptera_test
+
+trainer:
+  _target_: flash.Trainer
+  max_epochs: 3
+  gpus: 1
+
+preprocess:
+  _target_: flash.core.data.utils.download_data
+  url: "https://pl-flash-data.s3.amazonaws.com/hymenoptera_data.zip"
+  path: "./data"

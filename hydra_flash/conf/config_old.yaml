@@ -1,0 +1,32 @@
+preprocess:
+  _target_: flash.core.data.utils.download_data
+  url: "https://pl-flash-data.s3.amazonaws.com/hymenoptera_data.zip"
+  path: "./data"
+
+datamodule:
+  _target_: flash.image.ImageClassificationData.from_folders
+  train_folder: ${preprocess.path}/hymenoptera_data/train/
+  val_folder: ${preprocess.path}/hymenoptera_data/val/
+  batch_size: 4
+  num_workers: 12
+  transform_kwargs:
+    image_size: [196, 196]
+    mean: [0.485, 0.456, 0.406]
+    std: [0.229, 0.224, 0.225]
+
+model:
+  _target_: flash.image.ImageClassifier
+  backbone: resnet18
+
+trainer:
+  _target_: flash.Trainer
+  max_epochs: 3
+  gpus: 1
+
+predict_datamodule:
+  _target_: flash.image.ImageClassificationData.from_files
+  predict_files:
+    - "data/hymenoptera_data/val/bees/65038344_52a45d090d.jpg"
+    - "data/hymenoptera_data/val/bees/590318879_68cf112861.jpg"
+    - "data/hymenoptera_data/val/ants/540543309_ddbb193ee5.jpg"
+  batch_size: 3

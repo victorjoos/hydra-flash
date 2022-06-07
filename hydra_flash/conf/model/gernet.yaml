@@ -1,0 +1,3 @@
+_target_: flash.image.ImageClassifier
+backbone: gernet_s
+learning_rate: 1.e-3
