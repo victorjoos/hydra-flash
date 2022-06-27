@@ -6,7 +6,9 @@ of this code is to showcase how Hydra can be used.
 
 ## Installing
 
-You can install this code with poetry (install poetry at : https://python-poetry.org/docs/#installation) using : 
+In a separate virtual environement, install using `python -m pip install -r requirements.txt`.
+
+If you're using poetry (https://python-poetry.org/docs/#installation), you can install using : 
 
 ```
 poetry install
