@@ -19,11 +19,11 @@ poetry install
 Once the project has been installed, you can run it with the following command:
 
 ```
-poetry run flashtrain
+python -m hydra_flash.train
 ```
 
 You can, for example, change the learning rate using : 
 
 ```
-poetry run flashtrain model.learning_rate=1e-2
+python -m hydra_flash.train model.learning_rate=1e-2
 ```

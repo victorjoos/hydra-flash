@@ -23,3 +23,7 @@ def main(cfg):
     predict_datamodule = instantiate(cfg.predict_datamodule)
     predictions = trainer.predict(model, datamodule=predict_datamodule, output="labels")
     log.info(f"predictions : {predictions}")
+
+
+if __name__ == "__main__":
+    main()
