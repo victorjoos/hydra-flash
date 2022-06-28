@@ -1,11 +1,11 @@
 # @package _global_
 defaults:
   - _self_
-  - /server: local
   - /preprocess: lyft
   - /datamodule: lyft
   - /model: seg_mobilenet
   - /datamodule@predict_datamodule: lyft_test
+  - /server: local
 
 trainer:
   _target_: flash.Trainer

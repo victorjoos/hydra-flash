@@ -1,11 +1,11 @@
 # @package _global_
 defaults:
   - _self_
-  - /server: local
   - /preprocess: movie_poster
   - /datamodule: movie_posters
   - /model: resnet18
   - /datamodule@predict_datamodule: movie_posters_test
+  - /server: local
 
 trainer:
   _target_: flash.Trainer

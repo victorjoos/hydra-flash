@@ -1,11 +1,11 @@
 # @package _global_
 defaults:
   - _self_
-  - /server: local
   - /preprocess: hymenoptera
   - /datamodule: hymenoptera
   - /model: resnet18
   - /datamodule@predict_datamodule: hymenoptera_test
+  - /server: local
 
 trainer:
   _target_: flash.Trainer
