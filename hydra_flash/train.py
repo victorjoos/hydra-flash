@@ -30,7 +30,9 @@ def main(cfg):
     predict_datamodule = instantiate(cfg.predict_datamodule)
     predictions = trainer.predict(model, datamodule=predict_datamodule, output="labels")
 
-    show_predictions(predict_datamodule.predict_dataset, predictions[0])
+    show_predictions(
+        predict_datamodule.predict_dataset, predictions[0], cfg.show, cfg.save
+    )
 
 
 if __name__ == "__main__":
