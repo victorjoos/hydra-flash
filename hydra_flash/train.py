@@ -1,10 +1,10 @@
-from attr import has
 import hydra
 from hydra.utils import call, instantiate as hydra_instantiate
 from functools import partial
-import matplotlib.pyplot as plt
 from omegaconf import OmegaConf
 import logging
+
+from hydra_flash.utils import show_predictions
 
 log = logging.getLogger(__name__)
 
@@ -30,23 +30,7 @@ def main(cfg):
     predict_datamodule = instantiate(cfg.predict_datamodule)
     predictions = trainer.predict(model, datamodule=predict_datamodule, output="labels")
 
-    for i, (image, pred) in enumerate(
-        zip(predict_datamodule.predict_dataset, predictions[0])
-    ):
-        image = image["input"]
-        if hasattr(image, "shape"):
-            image = image.permute(1, 2, 0)
-        fig = plt.figure()
-        plt.imshow(image)
-        if isinstance(pred, str) or isinstance(pred, list):
-            plt.title(f"{pred}")
-        else:
-            plt.imshow(pred, cmap="tab20", alpha=0.5)
-
-        if cfg.save:
-            plt.savefig(f"{i}.png")
-        if cfg.show:
-            plt.show()
+    show_predictions(predict_datamodule.predict_dataset, predictions[0])
 
 
 if __name__ == "__main__":
