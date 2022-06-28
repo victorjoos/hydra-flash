@@ -1,0 +1,4 @@
+defaults:
+  - download
+
+url: "https://github.com/ongchinkiat/LyftPerceptionChallenge/releases/download/v0.1/carla-capture-20180513A.zip"

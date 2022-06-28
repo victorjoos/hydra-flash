@@ -1,0 +1,13 @@
+# @package _global_
+defaults:
+  - _self_
+  - /server: local
+  - /preprocess: lyft
+  - /datamodule: lyft
+  - /model: seg_mobilenet
+  - /datamodule@predict_datamodule: lyft_test
+
+trainer:
+  _target_: flash.Trainer
+  max_epochs: 3
+  gpus: 1

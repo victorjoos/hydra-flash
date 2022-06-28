@@ -1,0 +1,6 @@
+_target_: flash.image.SemanticSegmentationData.from_files
+predict_files:
+  - "${preprocess.path}/CameraRGB/F61-1.png"
+  - "${preprocess.path}/CameraRGB/F62-1.png"
+  - "${preprocess.path}/CameraRGB/F63-1.png"
+batch_size: 3
