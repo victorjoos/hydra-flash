@@ -1,0 +1,2 @@
+_target_: flash.core.data.utils.download_data
+path: ${path}

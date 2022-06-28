@@ -1,0 +1,13 @@
+# @package _global_
+defaults:
+  - _self_
+  - /server: local
+  - /preprocess: hymenoptera
+  - /datamodule: hymenoptera
+  - /model: resnet18
+  - /datamodule@predict_datamodule: hymenoptera_test
+
+trainer:
+  _target_: flash.Trainer
+  max_epochs: 3
+  gpus: 1
