@@ -10,6 +10,8 @@ torch = "^1.11.0"
 pytorch-lightning = "^1.6.4"
 hydra-core = "^1.2.0"
 hydra-submitit-launcher = "^1.2.0"
+hydra-zen = "^0.7.1"
+matplotlib = "^3.5.2"
 
 [tool.poetry.dev-dependencies]
 
