@@ -1,1 +1,4 @@
-name: local
+# @package _global_
+show: true
+save: true
+path: "/tmp"

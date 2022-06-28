@@ -2,7 +2,11 @@
 defaults:
   - override /hydra/launcher: submitit_slurm
 
-name: manneback
+show: false
+save: true
+preprocess:
+  path: ${oc.env:TEMPDIR}
+
 gpus: [0]
 hydra:
   launcher:
