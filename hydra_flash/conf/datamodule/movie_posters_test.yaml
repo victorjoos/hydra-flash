@@ -1,0 +1,6 @@
+_target_: flash.image.ImageClassificationData.from_files
+predict_files:
+  - "${preprocess.path}/movie_posters/predict/tt0085318.jpg"
+  - "${preprocess.path}/movie_posters/predict/tt0089461.jpg"
+  - "${preprocess.path}/movie_posters/predict/tt0097179.jpg"
+batch_size: 3

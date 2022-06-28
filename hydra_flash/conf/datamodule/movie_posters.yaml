@@ -1,0 +1,14 @@
+_target_: flash.image.ImageClassificationData.from_csv
+input_field: "Id"
+target_fields: ["Action", "Romance", "Crime", "Thriller", "Adventure"]
+train_file: ${preprocess.path}/movie_posters/train/metadata.csv
+train_resolver:
+  _target_: hydra_flash.utils.resolver
+  _partial_: true
+val_file: ${preprocess.path}/movie_posters/val/metadata.csv
+val_resolver:
+  _target_: hydra_flash.utils.resolver
+  _partial_: true
+transform_kwargs:
+  image_size: [128, 128]
+batch_size: 1
