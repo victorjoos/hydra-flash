@@ -15,7 +15,7 @@ instantiate = partial(hydra_instantiate, _convert_="all")
 def main(cfg):
     # Preprocess : download and/or unzip data
     call(cfg.preprocess)
-    print(OmegaConf.to_container(cfg.datamodule, resolve=True))
+
     datamodule = instantiate(cfg.datamodule)
 
     model_kwargs = {}
