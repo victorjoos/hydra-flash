@@ -5,7 +5,7 @@ defaults:
 show: false
 save: true
 preprocess:
-  path: ${oc.env:TEMPDIR}
+  path: ${oc.env:TMPDIR}
 
 gpus: [0]
 hydra:
